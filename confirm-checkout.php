@@ -67,12 +67,12 @@
 				<br><i> Merchandise Subtotal:</i> <b> PHP  <span id="subtotal-amount" class="cart-items-total-price"> </span> </b> <br> 
 				<i>Shipping Total:</i> <b> PHP <span id="shipping-amount"> 0 </span> </b> </span> <br> <br>
 				<span style="font-size: 19px;"> 
-				<b style="color: #5D5A80;"> Total: PHP <span id="total-amount"> </span> </b> </span> </p>
+				<b style="color: #2C2A3D;"> Total: PHP <span id="total-amount"> </span> </b> </span> </p>
 			</div>
 
 			<br>
 			<div align="center">
-				<a href="index.php" class="btn btn-danger"> <i class="fas fa-arrow-circle-left"></i> &nbsp; Cancel Order </a>
+				<a href="index.php" class="btn btn-danger"> <i class="fas fa-times-circle"></i> &nbsp; Cancel Order </a>
 					&nbsp; &nbsp;
 				<button type="submit" class="btn btn-success" onclick="confirmOrder()">
 					Confirm Order &nbsp; </span> <i class="fas fa-check-circle"></i></div></button>

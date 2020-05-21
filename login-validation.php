@@ -9,7 +9,7 @@ mysqli_select_db($con, 'carat_district');
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$sql = "SELECT password from users where username = '$username'";
+$sql = "SELECT * from users where username = '$username'";
 
 $result = mysqli_query($con, $sql);
 

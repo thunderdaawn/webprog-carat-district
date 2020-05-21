@@ -125,7 +125,7 @@
 
 				</div>
 				<div class="mx-3">
-					<a class="btn btn-secondary my-3" href="homepage.php"> Go Back </a>
+					<a class="btn btn-secondary my-3" href="index.php"> Go Back </a>
 				</div>
 
 			</center>
