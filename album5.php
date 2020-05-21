@@ -30,7 +30,7 @@
 
 	<br>
 	<br>
-		<a href=index.php" onclick="goBackFunction()"><div class="float-left y-10" style="padding-left: 25px;">
+		<a href="index.php" onclick="goBackFunction()"><div class="float-left y-10" style="padding-left: 25px;">
 			<button class="btn btn-info">
 			<i class="fas fa-arrow-circle-left"></i> </i> &nbsp;
 			<span style="font-size: 15px"> Back to Home </span> </button> 
