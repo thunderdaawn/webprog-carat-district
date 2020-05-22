@@ -255,15 +255,16 @@ function updateCartTotal() {
 
 	console.log(total);
 
-	document.getElementsByClassName('cart-items-total-price')[0].innerHTML = total;
-
 	if(total != 0){
-		document.getElementsByClassName('btn-edit-cart')[0].disabled = false;
+		document.getElementById('btn-edit-cart').disabled = false;
 	}
 
 	else {
-		document.getElementsByClassName('btn-edit-cart')[0].disabled = true;
+		document.getElementById('btn-edit-cart').disabled = true;
 	}
+
+	document.getElementsByClassName('cart-items-total-price')[0].innerHTML = total;
+
 
 }
 
