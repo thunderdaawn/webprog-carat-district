@@ -45,7 +45,7 @@
 	</form>
 
 
-	<div id="carousel-sample" class="carousel slide" data-ride="carousel" data-interval="3000" style="margin-top: 40px;">
+	<div id="carousel-sample" class="carousel slide" data-ride="carousel" data-interval="5000" style="margin-top: 40px;">
 
 		<div class="carousel-inner">
 
