@@ -50,23 +50,23 @@
 		<div class="carousel-inner">
 
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="images\carousel1-2.png" alt="#WelcomeCarats" style="height: 400px; width: 400px;">
+				<img class="d-block w-100" src="images\carousel1.png" alt="#CaratDistrictChingus" style="height: 400px; width: 400px;">
 			</div>
 
 			<div class="carousel-item">
-				<img class="d-block w-100" src="images\carousel2-2.png" alt="#CaratDistrictArrival" style="height: 400px; width: 400px;">
+				<img class="d-block w-100" src="images\carousel2.png" alt="#CaratDistrictArrival" style="height: 400px; width: 400px;">
 			</div>
 
 			<div class="carousel-item">
-				<img class="d-block w-100" src="images\carousel3-2.png" alt="#CaratDistrictRestock" style="height: 400px; width: 400px;">
+				<img class="d-block w-100" src="images\carousel3.png" alt="#CaratDistrictRestock" style="height: 400px; width: 400px;">
 			</div>
 
 			<div class="carousel-item">
-				<img class="d-block w-100" src="images\carousel4-2.png" alt="#CaratDistrictCares" style="height: 400px; width: 400px;">
+				<img class="d-block w-100" src="images\carousel4.png" alt="#WelcomeCarats" style="height: 400px; width: 400px;">
 			</div>
 
 			<div class="carousel-item">
-				<img class="d-block w-100" src="images\carousel5-2.png" alt="#CaratDistrictCares" style="height: 400px; width: 400px;">
+				<img class="d-block w-100" src="images\carousel5.png" alt="#CaratDistrictCares" style="height: 400px; width: 400px;">
 			</div>
 				
 		</div>
