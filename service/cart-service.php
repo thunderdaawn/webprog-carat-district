@@ -27,7 +27,7 @@ function ready() {
 										</div>
 
 										<div class="col qty-div">
-											<span class="cart-item-quantity-input">${albumList[i].quantityKey}</span>
+											<i><span class="cart-item-quantity-input">${albumList[i].quantityKey}</span></i>x
 										</div>
 
 										<div class="col price-div"> 
@@ -193,7 +193,7 @@ function addItemToCartItems(title, price, imageSrc, quantity) {
 							</div>
 
 							<div class="col qty-div">
-								<span class="cart-item-quantity-input">${quantity}</span>
+								<i><span class="cart-item-quantity-input">${quantity}</span></i>x
 							</div>
 
 							<div class="col price-div"> 
