@@ -361,8 +361,12 @@ function checkoutFunction() {
 
 	// Loop through all cart-item and get the title and price
 	var albumList = [];
+	var total = 0;
 
 	for(var i = 0; i < cartItemList.length; i++) {
+
+		total += parseFloat(cartItemList[i].getElementsByClassName('cart-item-price')[0].innerHTML);
+
 		var quantity = cartItemList[i].getElementsByClassName('cart-item-quantity-input')[0].value;
 		var image = cartItemList[i].getElementsByClassName('cart-item-image')[0].src;
 		var title = cartItemList[i].getElementsByClassName('cart-item-title')[0].innerHTML;
@@ -374,6 +378,7 @@ function checkoutFunction() {
 
 	console.log(albumList);
 	sessionStorage.setItem("albumList", JSON.stringify(albumList));
+	sessionStorage.setItem("subtotalCost", total);
 
 	window.location.href = "checkout.php";
 
@@ -529,20 +534,20 @@ function onchangePayment() {
 
 		var paymentDiv = document.getElementsByClassName('payment-div')[0];
 
-		var cardDetailsContent = `<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: center; align-items: left;  
-		                               padding-top:2px;">
-									<label for="cc-num"><b>Card Number:&nbsp;&nbsp;</b></label>
-									<input type="number" name="cc-num" class="form-control col-4 cc-num" placeholder="Card Number" required>
+		var cardDetailsContent = `<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end;  
+		                               padding-top:2px; margin-right: 45px;">
+									<label for="cc-num"><i>Credit/Debit Card Number:&nbsp;&nbsp;</i></label>
+									<input type="number" name="cc-num" class="form-control col-5 cc-num" placeholder="Card Number" required>
 								  </span>
 
-								  <span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: center; align-items: left;">
-								  	<label for="cc-expiry"><b>Card Expiry:&nbsp;&nbsp;</b></label>
-									<input type="date" name="cc-expiry" class="col-4 form-control cc-expiry" required>
+								  <span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; margin-right: 45px;">
+								  	<label for="cc-expiry"><i>Credit/Debit Card Expiry:&nbsp;&nbsp;</i></label>
+									<input type="date" name="cc-expiry" class="col-5 form-control cc-expiry" required>
 								  </span>
 
-								  <span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: center; align-items: left;">
-								  	<label for="cc-cvv"><b>Card CVV:&nbsp;&nbsp;</b></label>
-									<input type="number" name="cc-cvv" class="form-control col-3 cc-cvv" placeholder="CVV" required>
+								  <span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; margin-right: 45px;">
+								  	<label for="cc-cvv"><i>Credit/Debit Card CVV:&nbsp;&nbsp;</i></label>
+									<input type="number" name="cc-cvv" class="form-control col-5 cc-cvv" placeholder="CVV" required>
 								  </span>`;
 
 		paymentDiv.innerHTML = cardDetailsContent;
