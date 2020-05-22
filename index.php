@@ -61,8 +61,12 @@
 				<img class="d-block w-100" src="images\carousel3-2.png" alt="#CaratDistrictRestock" style="height: 400px; width: 400px;">
 			</div>
 
-				<div class="carousel-item">
+			<div class="carousel-item">
 				<img class="d-block w-100" src="images\carousel4-2.png" alt="#CaratDistrictCares" style="height: 400px; width: 400px;">
+			</div>
+
+			<div class="carousel-item">
+				<img class="d-block w-100" src="images\carousel5-2.png" alt="#CaratDistrictCares" style="height: 400px; width: 400px;">
 			</div>
 				
 		</div>
