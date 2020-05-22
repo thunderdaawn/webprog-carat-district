@@ -58,7 +58,7 @@
 						throw new Exception('You have not entered search fields. Please go back and try again.');
 					} 
 
-					@ $db = new mysqli('127.0.0.1:3306', 'student', 'mydev040100', 'carat_district');
+					@ $db = new mysqli('127.0.0.1:3306', 'root', '', 'carat_district');
 
 					$dbError = mysqli_connect_errno();
 

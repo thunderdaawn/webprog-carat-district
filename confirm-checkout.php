@@ -9,6 +9,17 @@
 		session_start();
 		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
+
+		require_once('service/db-connection-service.php');
+		mysqli_select_db($db, 'carat_district');
+
+		$address = $_GET['address'];
+		$username = $_SESSION['username'];
+
+		$sql = "UPDATE users SET address = '$address' WHERE username = '$username'";
+
+		mysqli_query($db, $sql);
+
 	?>
 
 </head>

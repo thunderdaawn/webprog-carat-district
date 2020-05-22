@@ -9,6 +9,8 @@
 		session_start();
 		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
+		require_once('service/db-connection-service.php');
+		require_once('address-verify.php');
 	?>
 
 </head>
@@ -76,7 +78,7 @@
 
 						<div align="center">
 				        	<label for="address"> <i class="fas fa-truck"></i> &nbsp;<b>Shipping Details: </b></label>
-				            <input type="text" name="address" class="form-control col-10" id="address" placeholder="Address" required>
+				            <input type="text" name="address" class="form-control col-10" id="address" value="<?php echo $theAddress ?>"required>
 				        </div>
 
 				        <div align="center" class="my-2">
@@ -98,6 +100,7 @@
 						</div>
 
 						<br>
+
 
 						<div align="center">
 							&nbsp; &nbsp;

@@ -129,6 +129,7 @@ function addToCartClicked() {
 	console.log(imageSrc);
 	addItemToCartItems(title,price,imageSrc, quantity);
     updateCartTotal();
+    alert("Item/s succesfully added to your cart");
 
 }
 
@@ -562,6 +563,7 @@ function onchangePayment() {
 }
 
 
+
 function updateTotal() {
 
 	var shipping = parseFloat(document.getElementById('shipping-amount').innerHTML);
@@ -624,7 +626,7 @@ function onloadConfirmCheckout() {
 
 	var result = new URLSearchParams(window.location.search);
 
-	document.getElementById('address-holder').innerHTML = result.get('address');
+	 var  address = document.getElementById('address-holder').innerHTML = result.get('address');
 	var courierChosen = result.get('shipping');
 	var paymentModeChosen = result.get('payment');
 
@@ -741,6 +743,13 @@ function confirmOrder() {
 	window.location.href = "order-success.php";
 
 }
+
+function logoutFunction() {
+      sessionStorage.clear();
+}
+
+
+
 
 
 </script>
