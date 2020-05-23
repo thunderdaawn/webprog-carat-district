@@ -2,9 +2,14 @@
 
 session_start();
 
-$con = mysqli_connect('localhost','root' ,'');
+@ $db = new mysqli('127.0.0.1:3306', 'root', '', 'carat_district');
 
-mysqli_select_db($con, 'carat_district');
+$dbError = mysqli_connect_errno();
+
+if($dbError) {
+	throw new Exception('Error: Could not connect to database. Please try again later. '.$dbError, 1);
+}
+
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -16,21 +21,27 @@ $suffix = $_POST['suffix'];
 
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = " SELECT * from users where username = '$username'";
+$query = " SELECT * from users where username = ?";
+$stmt = $db->prepare($query);
+$stmt->bind_param("s",$username);
+$stmt->execute();
 
-$result = mysqli_query($con, $sql);
+$stmt->store_result();
 
-$num = mysqli_num_rows($result);
+$stmt->bind_result($uName);
 
-if($num == 1){
+if($stmt->num_rows > 0){
 	echo "UserName Already Taken";
 	header('location:register.php'); 
 }else{
-	$reg = "Insert into users(first_name, last_name, middle_name, suffix, email, username, password) values ('$first_name','$last_name','$middle_name','$suffix','$email','$username','$hash')";
+	$reg = "Insert into users(first_name, last_name, middle_name, suffix, email, username, password) values (?,?,?,?,?,?,?)";
+
+	$stmt = $db->prepare($reg);
+	$stmt->bind_param("sssssss", $first_name,$last_name,$middle_name,$suffix,$email,$username,$hash);
+	$stmt->execute();
+	$stmt->close();
 
 	$_SESSION['username'] = $username;
-	mysqli_query($con,$reg);
-
 	header('location:index.php'); // redirect
 }
   ?>

@@ -2,24 +2,31 @@
 
 session_start();
 
-$con = mysqli_connect('localhost','root', '');
+@ $db = new mysqli('127.0.0.1:3306', 'root', '', 'carat_district');
 
-mysqli_select_db($con, 'carat_district');
+$dbError = mysqli_connect_errno();
+
+if($dbError) {
+	throw new Exception('Error: Could not connect to database. Please try again later. '.$dbError, 1);
+}
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$sql = "SELECT * from users where username = '$username'";
+$query = "SELECT username,password from users where username = ?";
+$stmt = $db->prepare($query);
+$stmt->bind_param("s",$username);
+$stmt->execute();
 
-$result = mysqli_query($con, $sql);
+$stmt->store_result();
 
-if(mysqli_num_rows($result) > 0){
+$stmt->bind_result($uName,$pw);
+
+if($stmt->num_rows > 0){
 	
-	$row = mysqli_fetch_array($result);
-	$password_hash = $row['password'];
-	echo $password_hash;
-
-	if(password_verify($password, $password_hash)){
+	$stmt->fetch();
+	echo $pw;
+	if(password_verify($password, $pw)){
 			$_SESSION['username'] = $username;
 		 	header('location:index.php'); // redirect
 	}
