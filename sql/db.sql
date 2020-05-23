@@ -12,6 +12,18 @@ CREATE TABLE IF NOT EXISTS products (
 	description VARCHAR(2000)
 );
 
+CREATE TABLE IF NOT EXISTS users (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	first_name VARCHAR(255),
+	middle_name VARCHAR(255),
+	last_name VARCHAR(255),
+	suffix VARCHAR(255),
+	email VARCHAR(255),
+	username VARCHAR(255),
+	password VARCHAR(255),
+	address VARCHAR(500)
+);
+
 
 INSERT INTO products (name, link, img_src, price, btn_id, description) VALUES 
 	('17 Carat', 'album1.php', 'http://localhost/carat-district/images/album1.jpg', 699, 'btn-album1', 'Pledis Entertainment, the agency of After School and NU’EST, is debuting the new boy band Seventeen. The group has been on the fan radar for a long time thanks to the pre-debut show Seventeen TV which followed the members as trainees, and their debut process is being documented in the MBC Music reality program Seventeen Project.'),
