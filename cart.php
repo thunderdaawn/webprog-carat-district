@@ -8,6 +8,7 @@
 	<?php
 		session_start();
 		require_once('view-comp/header.php');
+		require_once('service/log-service.php');
 	?>
 
 </head>
@@ -16,6 +17,7 @@
 
 	<?php
 		require_once('view-comp/navbar-special.php');
+		editCartLogMessage($_SESSION['username']);
 	?>
 	
 	<br>

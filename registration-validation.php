@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('service/log-service.php');
+
 @ $db = new mysqli('127.0.0.1:3306', 'root', '', 'carat_district');
 
 $dbError = mysqli_connect_errno();
@@ -31,7 +33,7 @@ $stmt->store_result();
 $stmt->bind_result($uName);
 
 if($stmt->num_rows > 0){
-	echo "UserName Already Taken";
+	echo "Username Already Taken";
 	header('location:register.php'); 
 }else{
 	$reg = "Insert into users(first_name, last_name, middle_name, suffix, email, username, password) values (?,?,?,?,?,?,?)";
@@ -42,6 +44,7 @@ if($stmt->num_rows > 0){
 	$stmt->close();
 
 	$_SESSION['username'] = $username;
+	registerLogMessage($username);
 	header('location:index.php'); // redirect
 }
   ?>

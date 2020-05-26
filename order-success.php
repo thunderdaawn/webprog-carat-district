@@ -7,6 +7,7 @@
 	<?php
 		session_start();
 		require_once('view-comp/header.php');
+		require_once('service/log-service.php');
 	?>
 	
 </head>
@@ -14,7 +15,8 @@
 <body style="background-color: #D3F5FA">
 
 	<?php
-		require_once('view-comp/navbar-special-three.php')
+		require_once('view-comp/navbar-special-three.php');
+		checkoutLogMessage($_SESSION['username']);
 	?>
 	
 	<br>

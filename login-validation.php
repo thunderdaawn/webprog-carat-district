@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('service/log-service.php');
+
 @ $db = new mysqli('127.0.0.1:3306', 'root', '', 'carat_district');
 
 $dbError = mysqli_connect_errno();
@@ -27,8 +29,9 @@ if($stmt->num_rows > 0){
 	$stmt->fetch();
 	echo $pw;
 	if(password_verify($password, $pw)){
-			$_SESSION['username'] = $username;
-		 	header('location:index.php'); // redirect
+		$_SESSION['username'] = $username;
+		loginLogMessage($username);
+		header('location:index.php'); // redirect
 	}
 	else{
 		header('location:login-retry.php'); // redirect
