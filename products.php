@@ -1,11 +1,10 @@
 <!DOCTYPE HTML>
 
 <head>
-	<title> Products: Love & Letter </title>
+	<title> Carat District: Products </title>
 
 	<?php
 		session_start();
-		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
 	?>
 
@@ -13,7 +12,7 @@
 
 </head>
 
-<body onload="ready()" style="background-color: #D3F5FA">
+<body onload="ready()" style="background-color: #D3F5FA;">
 
 	<div class="navbar-div">
 		<?php 
@@ -26,7 +25,7 @@
 				require_once('view-comp/navbar-guest.php');
 			}
 		?>
-	</div>
+	</div>	
 
 	<br>
 	<br>
@@ -48,9 +47,11 @@
 
 			try {
 
+				$productId = $_GET['productId'];
+
 				require_once('service/db-connection-service.php');
 
-				$query = 'SELECT name, img_src, price, description FROM products WHERE id = 3';
+				$query = 'SELECT name, img_src, price, description FROM products WHERE id = "'.$productId.'"';
 
 				$result = $db->query($query);
 
@@ -70,7 +71,7 @@
 				<h1 class="store-item-name my-2"><?php echo $row['name'] ?></h1>
 				<h4 style="color:#3B3854;" class="mx-2"><b>PHP <span class="store-item-price"><?php echo $row['price']; ?></span></b></h4>
 				<p class="my-4" style="font-size: 14px;"><i><?php echo $row['description']; ?></i></p>
-				
+
 				<?php
 					if(isset($_SESSION['username'])) {
 						require_once('view-comp/add-to-cart.php');

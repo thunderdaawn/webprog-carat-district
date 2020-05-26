@@ -1,5 +1,3 @@
-<script>
-
 // for index.php
 function ready() {
 
@@ -753,9 +751,3 @@ function confirmOrder() {
 function logoutFunction() {
       sessionStorage.clear();
 }
-
-
-
-
-
-</script>

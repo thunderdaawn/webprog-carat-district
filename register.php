@@ -5,7 +5,6 @@
 	<title> Carat District: Register </title>
 
 	<?php
-		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
 	?>
 	

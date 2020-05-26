@@ -7,7 +7,6 @@
 
 	<?php
 		session_start();
-		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
 		require_once('service/db-connection-service.php');
 		require_once('address-verify.php');

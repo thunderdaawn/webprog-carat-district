@@ -5,8 +5,7 @@
 	<title> Carat District: Login </title>
 
 
-	<?php
-		require_once('service/cart-service.php');
+	<?php		
 		require_once('view-comp/header.php');
 	?>
 	

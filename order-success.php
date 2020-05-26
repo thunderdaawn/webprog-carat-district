@@ -6,7 +6,6 @@
 
 	<?php
 		session_start();
-		require_once('service/cart-service.php');
 		require_once('view-comp/header.php');
 	?>
 	
