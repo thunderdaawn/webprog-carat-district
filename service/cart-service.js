@@ -230,7 +230,7 @@ function quantityChanged(event) {
     CartItems.getElementsByClassName("cart-item-price")[0].innerHTML = value;
     
 	updateTotalItems();
-	updateCartTotal();
+	updateCartTotal2();
 
 }
 
