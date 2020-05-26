@@ -72,7 +72,7 @@
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
 					<label for="email"><b>Email:&nbsp;&nbsp;&nbsp;</b></label>
-					<input type="email" name="email" class="form-control col-8 email" placeholder="Email" required>
+					<input type="email" name="email" class="form-control col-8 email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="Email" required>
 				</span>
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
