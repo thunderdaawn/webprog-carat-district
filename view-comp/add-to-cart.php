@@ -6,8 +6,8 @@
 
 <!-- <?php // @tian pls update :)
 
-	if(isset($_POST['add-to-cart-btn'])) {
-		addToCartLogMessage($_SESSION['username']); 
+	// if(isset($_POST['add-to-cart-btn'])) {
+		// addToCartLogMessage($_SESSION['username']); 
 	}
 
 ?>
