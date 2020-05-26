@@ -6,6 +6,7 @@
 	<?php
 		session_start();
 		require_once('view-comp/header.php');
+		require_once('service/log-service.php');
 	?>
 
 	<link rel="stylesheet" type="text/css" href="CSS/page-style.css">
@@ -77,7 +78,6 @@
 						require_once('view-comp/add-to-cart.php');
 					}
 				?>
-				
 			</div>
 
 		</div>
