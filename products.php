@@ -64,7 +64,7 @@
 
 			<div class="col col-6">
 
-				<img src = <?php echo $row['imageSrc']; ?> class="store-item-image" style="height: 300px; width: 300px;">
+				<img src = <?php echo $row['imageSrc']; ?> class="store-item-image" style="height: 350px; width: 350px;">
 
 			</div>
 
