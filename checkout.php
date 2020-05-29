@@ -3,7 +3,7 @@
 <head>
 	<title> Carat District: Confirm Checkout </title>
 	
-	<link rel="stylesheet" type="text/css" href="CSS/page-style.css">
+	<link rel="stylesheet" type="text/css" href="css/page-style.css">
 
 	<?php
 		session_start();

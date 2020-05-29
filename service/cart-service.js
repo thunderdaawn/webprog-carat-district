@@ -511,9 +511,9 @@ function onloadConfirmCheckout() {
 	var courierChosen = result.get('shipping');
 	var paymentModeChosen = result.get('payment');
 
-	if (paymentModeChosen = "cod") {
+	if (paymentModeChosen == "cod") {
 		document.getElementById('paymentHolder').innerHTML = "Cash On Delivery";
-	} else if (paymentModeChosen = "card") {
+	} else if (paymentModeChosen == "card") {
 		document.getElementById('paymentHolder').innerHTML = "Credit or Debit Card";
 	}
 
@@ -530,7 +530,7 @@ function onloadConfirmCheckout() {
 		document.getElementById('shippingHolder').innerHTML = "J&T Express - Delivery within 3-5 Days";
 		document.getElementById('shippingAmount').innerHTML = 180;
 	} else if(courierChosen == "standard"){
-		document.getElementById('shippingHolder').innerHTML = "Standard Free Delivery - Delivery within 8-10 Days";
+		document.getElementById('shippingHolder').innerHTML = "Standard Express Delivery - Delivery within 8-10 Days";
 		document.getElementById('shippingAmount').innerHTML = 75;
 	}
 

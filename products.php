@@ -9,7 +9,7 @@
 		require_once('service/log-service.php');
 	?>
 
-	<link rel="stylesheet" type="text/css" href="CSS/page-style.css">
+	<link rel="stylesheet" type="text/css" href="css/page-style.css">
 
 </head>
 
