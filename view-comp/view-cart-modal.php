@@ -37,7 +37,7 @@
 				<!-- Modal Content Footer -->
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        			<button type="button" class="btn btn-success btn-edit-cart" id="btn-edit-cart" onclick="viewCartFunction()">Edit Cart</button>
+        			<button type="button" class="btn btn-success btn-edit-cart" onclick="viewCartFunction()">Edit Cart</button>
 				</div>
 			</div>
 		</div>

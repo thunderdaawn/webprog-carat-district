@@ -209,10 +209,10 @@ function updateCartTotal() {
 		total = total + price;
 	}
 
-	if(total != 0){
-		document.getElementById('btn-edit-cart').disabled = false;
+	if(total == 0){
+		document.getElementsByClassName('btn-edit-cart')[0].disabled = true;
 	} else {
-		document.getElementById('btn-edit-cart').disabled = true;
+		document.getElementsByClassName('btn-edit-cart')[0].disabled = false;
 	}
 
 	document.getElementsByClassName('cart-items-total-price')[0].innerHTML = total;
