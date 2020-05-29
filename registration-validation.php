@@ -33,8 +33,7 @@ $stmt->store_result();
 $stmt->bind_result($uName);
 
 if($stmt->num_rows > 0){
-	echo "Username Already Taken";
-	header('location:register.php'); 
+	header('location:register-retry.php'); 
 }else{
 	$reg = "Insert into users(firstName, lastName, middleName, suffix, email, username, password) values (?,?,?,?,?,?,?)";
 
