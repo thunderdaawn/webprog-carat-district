@@ -49,9 +49,9 @@
 			<br>
 
 			<span style="font-size:17px;">
-				Payment Method: <b> <span style="color:black;" id="payment-holder"> </span> </b> <br>
-				Shipping Address: <b> <span style="color:black;" id="address-holder"> </span> </b> <br>
-				Shipping Method: <b> <span style="color:black;" id="shipping-holder"> </span> </b> <br>
+				Payment Method: <b> <span style="color:black;" id="paymentHolder"> </span> </b> <br>
+				Shipping Address: <b> <span style="color:black;" id="addressHolder"> </span> </b> <br>
+				Shipping Method: <b> <span style="color:black;" id="shippingHolder"> </span> </b> <br>
 			</span>
 
 			<br>
@@ -66,7 +66,7 @@
 				<br>
 
 				<div style="padding-bottom: 8px;">
-					<span style="font-size: 15px;"> <b> Total Number of Items: <span id="total-items"> 3 </span> </span> </b>
+					<span style="font-size: 15px;"> <b> Total Number of Items: <span id="totalItems"> 3 </span> </span> </b>
 					<br>
 				</div>
 
@@ -74,10 +74,10 @@
 
 			<div align="center">
 				<span style="font-size: 17px;"> 
-				<br><i> Merchandise Subtotal:</i> <b> PHP  <span id="subtotal-amount" class="cart-items-total-price"> </span> </b> <br> 
-				<i>Shipping Total:</i> <b> PHP <span id="shipping-amount"> 0 </span> </b> </span> <br> <br>
+				<br><i> Merchandise Subtotal:</i> <b> PHP  <span id="subtotalAmount" class="cart-items-total-price"> </span> </b> <br> 
+				<i>Shipping Total:</i> <b> PHP <span id="shippingAmount"> 0 </span> </b> </span> <br> <br>
 				<span style="font-size: 19px;"> 
-				<b style="color: #2C2A3D;"> Total: PHP <span id="total-amount"> </span> </b> </span> </p>
+				<b style="color: #2C2A3D;"> Total: PHP <span id="totalAmount"> </span> </b> </span> </p>
 			</div>
 
 			<br>

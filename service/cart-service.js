@@ -44,13 +44,6 @@ function ready() {
 	}
 }	
 
-function updateStoreItems() {
-	
-		document.getElementById('select-all').checked = false;
-		updateCartTotal();
-
-}
-
 function addToCartClicked() {
 
 	var title = document.getElementsByClassName('store-item-name')[0].innerHTML;
@@ -76,7 +69,7 @@ function updateTotalItems() {
 
 		}
 
-		document.getElementById('total-items').innerHTML = total_qty;
+		document.getElementById('totalItems').innerHTML = total_qty;
 }
 
 
@@ -160,6 +153,43 @@ function quantityChanged(event) {
     
 	updateTotalItems();
 	updateCartTotal2();
+
+}
+
+function checkoutFunction() {
+
+	if(!(sessionStorage.getItem("albumList") === null)) {
+		sessionStorage.removeItem("albumList");
+	}
+
+	// Get the parent or container that holds all the cart-item (cart-items)
+	var cartItems = document.getElementsByClassName('cart-items')[0];
+
+	// Get all the cart-item inside the parent/container
+	var cartItemList = cartItems.getElementsByClassName('cart-item');
+
+	// Loop through all cart-item and get the title and price
+	var albumList = [];
+	var total = 0;
+
+	for(var i = 0; i < cartItemList.length; i++) {
+
+		total += parseFloat(cartItemList[i].getElementsByClassName('cart-item-price')[0].innerHTML);
+
+		var quantity = cartItemList[i].getElementsByClassName('cart-item-quantity-input')[0].value;
+		var image = cartItemList[i].getElementsByClassName('cart-item-image')[0].src;
+		var title = cartItemList[i].getElementsByClassName('cart-item-title')[0].innerHTML;
+		var price = cartItemList[i].getElementsByClassName('cart-item-price')[0].innerHTML;
+		var base = cartItemList[i].getElementsByClassName('cart-item-price-base')[0].innerHTML;
+		
+		albumList[i] = {quantityKey: quantity, titleKey: title, imageKey: image, priceKey: price, basePriceKey: base};
+	}
+
+	console.log(albumList);
+	sessionStorage.setItem("albumList", JSON.stringify(albumList));
+	sessionStorage.setItem("subtotalCost", total);
+
+	window.location.href = "checkout.php";
 
 }
 
@@ -368,15 +398,15 @@ function onchangeShipping() {
 	var option = document.getElementById('shipping').value;
 
 	if(option == "lbc") {
-		document.getElementById('shipping-amount').innerHTML = 100;
+		document.getElementById('shippingAmount').innerHTML = 100;
 	} else if(option == "standard") {
-		document.getElementById('shipping-amount').innerHTML = 75;
+		document.getElementById('shippingAmount').innerHTML = 75;
 	} else if(option == "jrs") {
-		document.getElementById('shipping-amount').innerHTML = 200;
+		document.getElementById('shippingAmount').innerHTML = 200;
 	} else if(option == "xpost") {
-		document.getElementById('shipping-amount').innerHTML = 150;
+		document.getElementById('shippingAmount').innerHTML = 150;
 	} else if(option == "j&t") {
-		document.getElementById('shipping-amount').innerHTML = 180;
+		document.getElementById('shippingAmount').innerHTML = 180;
 	}
 
 	updateTotal();
@@ -387,7 +417,7 @@ function onchangePayment() {
 	var option = document.getElementById('payment').value;
 
 	if(option == "card") {
-		document.getElementById('shipping-amount').innerHTML = 75;
+		document.getElementById('shippingAmount').innerHTML = 75;
 
 		var paymentDiv = document.getElementsByClassName('payment-div')[0];
 
@@ -410,7 +440,7 @@ function onchangePayment() {
 		paymentDiv.innerHTML = cardDetailsContent;
 		
 	} else if(option == "cod") {
-		document.getElementById('shipping-amount').innerHTML = 75;
+		document.getElementById('shippingAmount').innerHTML = 75;
 		var paymentDiv = document.getElementsByClassName('payment-div')[0];
 		var cardDetailsContent = ` `;
 		paymentDiv.innerHTML = cardDetailsContent;		
@@ -421,11 +451,11 @@ function onchangePayment() {
 
 function updateTotal() {
 
-	var shipping = parseFloat(document.getElementById('shipping-amount').innerHTML);
-	var subtotal = parseFloat(document.getElementById('subtotal-amount').innerHTML);
+	var shipping = parseFloat(document.getElementById('shippingAmount').innerHTML);
+	var subtotal = parseFloat(document.getElementById('subtotalAmount').innerHTML);
 
 	var total = subtotal + shipping;
-	document.getElementById('total-amount').innerHTML = total;
+	document.getElementById('totalAmount').innerHTML = total;
 }
 
 // for checkout.php
@@ -467,9 +497,9 @@ function onloadCheckout() {
 		
 	}
 
-	document.getElementById('subtotal-amount').innerHTML = sessionStorage.getItem("subtotalCost");
-	document.getElementById('total-amount').innerHTML = sessionStorage.getItem("subtotalCost");
-	document.getElementById('shipping-amount').innerHTML = 75;
+	document.getElementById('subtotalAmount').innerHTML = sessionStorage.getItem("subtotalCost");
+	document.getElementById('totalAmount').innerHTML = sessionStorage.getItem("subtotalCost");
+	document.getElementById('shippingAmount').innerHTML = 75;
 }
 
 // for confirm-checkout.php
@@ -477,31 +507,31 @@ function onloadConfirmCheckout() {
 
 	var result = new URLSearchParams(window.location.search);
 
-	 var  address = document.getElementById('address-holder').innerHTML = result.get('address');
+	 var  address = document.getElementById('addressHolder').innerHTML = result.get('address');
 	var courierChosen = result.get('shipping');
 	var paymentModeChosen = result.get('payment');
 
 	if (paymentModeChosen = "cod") {
-		document.getElementById('payment-holder').innerHTML = "Cash On Delivery";
+		document.getElementById('paymentHolder').innerHTML = "Cash On Delivery";
 	} else if (paymentModeChosen = "card") {
-		document.getElementById('payment-holder').innerHTML = "Credit or Debit Card";
+		document.getElementById('paymentHolder').innerHTML = "Credit or Debit Card";
 	}
 
 	if(courierChosen == "lbc"){
-		document.getElementById('shipping-holder').innerHTML = "LBC Express - Next Day Delivery";
-		document.getElementById('shipping-amount').innerHTML = 100;
+		document.getElementById('shippingHolder').innerHTML = "LBC Express - Next Day Delivery";
+		document.getElementById('shippingAmount').innerHTML = 100;
 	} else if(courierChosen == "jrs"){
-		document.getElementById('shipping-holder').innerHTML = "JRS Express - Delivery within 3-5 Days";
-		document.getElementById('shipping-amount').innerHTML = 200;
+		document.getElementById('shippingHolder').innerHTML = "JRS Express - Delivery within 3-5 Days";
+		document.getElementById('shippingAmount').innerHTML = 200;
 	} else if(courierChosen == "xpost"){
-		document.getElementById('shipping-holder').innerHTML = "XPost Integrated - Next Day Delivery";
-		document.getElementById('shipping-amount').innerHTML = 150;
+		document.getElementById('shippingHolder').innerHTML = "XPost Integrated - Next Day Delivery";
+		document.getElementById('shippingAmount').innerHTML = 150;
 	} else if(courierChosen == "j&t"){
-		document.getElementById('shipping-holder').innerHTML = "J&T Express - Delivery within 3-5 Days";
-		document.getElementById('shipping-amount').innerHTML = 180;
+		document.getElementById('shippingHolder').innerHTML = "J&T Express - Delivery within 3-5 Days";
+		document.getElementById('shippingAmount').innerHTML = 180;
 	} else if(courierChosen == "standard"){
-		document.getElementById('shipping-holder').innerHTML = "Standard Free Delivery - Delivery within 8-10 Days";
-		document.getElementById('shipping-amount').innerHTML = 75;
+		document.getElementById('shippingHolder').innerHTML = "Standard Free Delivery - Delivery within 8-10 Days";
+		document.getElementById('shippingAmount').innerHTML = 75;
 	}
 
 
@@ -567,8 +597,8 @@ function onloadConfirmCheckout() {
 		cartItems.append(cartItem); // adds the content inside the div
 	}
 
-	document.getElementById('total-items').innerHTML = counter;
-	document.getElementById('subtotal-amount').innerHTML = sessionStorage.getItem("subtotalCost");
+	document.getElementById('totalItems').innerHTML = counter;
+	document.getElementById('subtotalAmount').innerHTML = sessionStorage.getItem("subtotalCost");
 	updateTotal();
 }
 

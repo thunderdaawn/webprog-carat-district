@@ -92,10 +92,10 @@
 
 						<div align="center">
 							<span style="font-size: 17px;"> 
-							<br><i> Merchandise Subtotal:</i> <b> PHP  <span id="subtotal-amount"> </span> </b> <br> 
-							<i>Shipping Total:</i> <b> PHP <span id="shipping-amount"> 0 </span> </b> </span> <br> <br>
+							<br><i> Merchandise Subtotal:</i> <b> PHP  <span id="subtotalAmount"> </span> </b> <br> 
+							<i>Shipping Total:</i> <b> PHP <span id="shippingAmount"> 0 </span> </b> </span> <br> <br>
 							<span style="font-size: 17px;"> 
-								<b> Total: PHP <span id="total-amount"> </span> </b> </span> </p>
+								<b> Total: PHP <span id="totalAmount"> </span> </b> </span> </p>
 						</div>
 
 						<br>

@@ -41,7 +41,7 @@
 				<br>
 
 				<div class="col">
-					<p style="font-size: 18px;"><i>Total No. of Items: </i><b><span id="total-items" style="color: #2C2A3D;">0</span></b>
+					<p style="font-size: 18px;"><i>Total No. of Items: </i><b><span id="totalItems" style="color: #2C2A3D;">0</span></b>
 					<br>
 					<i>Merchandise Subtotal:</i><b><span style="color: #2C2A3D;"> PHP <span class="cart-items-total-price">0</span></span></b></p>
 				</div>
