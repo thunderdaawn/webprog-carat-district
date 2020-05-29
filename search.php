@@ -65,7 +65,7 @@
 						throw new Exception('Error: Could not connect to database. Please try again later. '.$dbError, 1);
 					}
 
-					$query = 'SELECT name, link, img_src, price FROM products WHERE name like \'%'.$searchTerm.'%\';';
+					$query = 'SELECT name, link, imageSrc, price FROM products WHERE name like \'%'.$searchTerm.'%\';';
 
 					$result = $db->query($query);
 					$resultCount = $result->num_rows;
@@ -89,7 +89,7 @@
 							echo'<a href ='.$row['link'].'><div class="store-item color1">';
 							echo '<b><div class="store-item-name">'.$row['name'].'</div></b>';
 							echo '<br>';
-							echo '<img class="store-item-image" src="'.$row['img_src'].'">';
+							echo '<img class="store-item-image" src="'.$row['imageSrc'].'">';
 							echo '<br>';
 							echo '<br>';
 							echo '<div class="store-item-details">';
@@ -103,7 +103,7 @@
 							echo'<a href ='.$row['link'].'><div class="store-item color2">';
 							echo '<b><div class="store-item-name">'.$row['name'].'</div></b>';
 							echo '<br>';
-							echo '<img class="store-item-image" src="'.$row['img_src'].'">';
+							echo '<img class="store-item-image" src="'.$row['imageSrc'].'">';
 							echo '<br>';
 							echo '<br>';
 							echo '<div class="store-item-details">';

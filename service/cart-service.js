@@ -44,70 +44,6 @@ function ready() {
 	}
 }	
 
-
-function RemoveButtonFunction() {
-	var confirmation = confirm("Are you sure?");
-
-	if(confirmation) {
-
-		// get all the checkboxes (select-store-item)
-		var checkboxes = document.getElementsByClassName('cart-item-checkbox');
-
-		// get all the checkboxes that are marked checked and store it in a variable
-		var checkedHolder = [];
-		var checkedNamesHolder = [];
-		var counter = 0;
-
-		for(var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i].checked == true) {
-				checkedHolder[counter] = checkboxes[i];
-				counter++;
-			}
-		}
-
-		// using the temporary variable, use remove function
-		for(var i = 0; i < checkedHolder.length; i++) {
-			checkedNamesHolder[i] = checkedHolder[i].parentElement.parentElement.getElementsByClassName('cart-item-title')[0].innerHTML;
-			console.log(checkedNamesHolder[i]);
-			checkedHolder[i].parentElement.parentElement.remove();
-		}
-
-		// traverse all checked
-		updateStoreItems();
-	}
-}
-
-function RemoveButtonFunction2() {
-	var confirmation = confirm("Are you sure?");
-
-	if(confirmation) {
-
-		// get all the checkboxes (select-store-item)
-		var checkboxes = document.getElementsByClassName('cart-item-checkbox');
-
-		// get all the checkboxes that are marked checked and store it in a variable
-		var checkedHolder = [];
-		var checkedNamesHolder = [];
-		var counter = 0;
-
-		for(var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i].checked == true) {
-				checkedHolder[counter] = checkboxes[i];
-				counter++;
-			}
-		}
-
-		// using the temporary variable, use remove function
-		for(var i = 0; i < checkedHolder.length; i++) {
-			checkedNamesHolder[i] = checkedHolder[i].parentElement.parentElement.getElementsByClassName('cart-item-title')[0].innerHTML;
-			console.log(checkedNamesHolder[i]);
-			checkedHolder[i].parentElement.parentElement.remove();
-		}
-	}
-
-	updateCartTotal();
-}
-
 function updateStoreItems() {
 	
 		document.getElementById('select-all').checked = false;
@@ -122,13 +58,9 @@ function addToCartClicked() {
 	var quantity = parseInt(document.getElementsByClassName('store-item-quantity-input')[0].value);
 	var imageSrc = document.getElementsByClassName('store-item-image')[0].src;
 
-	console.log(title);
-	console.log(price);
-	console.log(imageSrc);
 	addItemToCartItems(title,price,imageSrc, quantity);
     updateCartTotal();
     alert("Item/s succesfully added to your cart");
-
 }
 
 function updateTotalItems() {
@@ -144,7 +76,6 @@ function updateTotalItems() {
 
 		}
 
-		console.log(total_qty);
 		document.getElementById('total-items').innerHTML = total_qty;
 }
 
@@ -157,14 +88,12 @@ function addItemToCartItems(title, price, imageSrc, quantity) {
 	// check if the item is already existing to the cart items
 	var cartItemsTitles = cartItems.getElementsByClassName('cart-item-title');
 	
-	console.log(cartItemsTitles);
 	for(var i = 0; i < cartItemsTitles.length; i++) {
 
 		if(cartItemsTitles[i].innerHTML == title) {
 			var qty = parseInt(cartItems.getElementsByClassName('cart-item-quantity-input')[i].innerHTML);
 			qty += quantity;
 			cartItems.getElementsByClassName('cart-item-quantity-input')[i].innerHTML = qty;
-			console.log(qty);
 			updateCartTotal();
 			updateCartIcon();
 			return;
@@ -247,22 +176,16 @@ function updateCartTotal() {
 
 	for(var i = 0; i < cartItemsTitles.length; i++) {
 		var price = parseFloat(cartItemsPrice[i].innerHTML);
-		console.log(price);
 		total = total + price;
 	}
 
-	console.log(total);
-
 	if(total != 0){
 		document.getElementById('btn-edit-cart').disabled = false;
-	}
-
-	else {
+	} else {
 		document.getElementById('btn-edit-cart').disabled = true;
 	}
 
 	document.getElementsByClassName('cart-items-total-price')[0].innerHTML = total;
-
 
 }
 
@@ -280,11 +203,8 @@ function updateCartTotal2() {
 
 	for(var i = 0; i < cartItemsTitles.length; i++) {
 		var price = parseFloat(cartItemsPrice[i].innerHTML);
-		console.log(price);
 		total = total + price;
 	}
-
-	console.log(total);
 
 	if(total == 0){
 		document.getElementsByClassName('checkout-btn')[0].disabled = true;
@@ -299,18 +219,6 @@ function removeCartItem(event) {
 	var title = button.parentElement.parentElement.getElementsByClassName('cart-item-title')[0].innerHTML;
 	button.parentElement.parentElement.remove();
 
-	console.log(title);
-	updateCartTotal();
-
-}
-
-function removeCartItem2(event) {
-
-	var button = event.target;
-	var title = button.parentElement.parentElement.getElementsByClassName('cart-item-title')[0].innerHTML;
-	button.parentElement.parentElement.remove();
-
-	console.log(title);
 	updateTotalItems();
 	updateCartTotal2();
 }
@@ -341,48 +249,9 @@ function viewCartFunction() {
 		albumList[i] = {quantityKey: quantity, titleKey: title, imageKey: image, priceKey: price, basePriceKey: base};
 	}
 
-	console.log(albumList);
 	sessionStorage.setItem("albumList", JSON.stringify(albumList));
 	window.location.href = "cart.php";
 }
-
-function checkoutFunction() {
-
-	if(!(sessionStorage.getItem("albumList") === null)) {
-		sessionStorage.removeItem("albumList");
-	}
-
-	// Get the parent or container that holds all the cart-item (cart-items)
-	var cartItems = document.getElementsByClassName('cart-items')[0];
-
-	// Get all the cart-item inside the parent/container
-	var cartItemList = cartItems.getElementsByClassName('cart-item');
-
-	// Loop through all cart-item and get the title and price
-	var albumList = [];
-	var total = 0;
-
-	for(var i = 0; i < cartItemList.length; i++) {
-
-		total += parseFloat(cartItemList[i].getElementsByClassName('cart-item-price')[0].innerHTML);
-
-		var quantity = cartItemList[i].getElementsByClassName('cart-item-quantity-input')[0].value;
-		var image = cartItemList[i].getElementsByClassName('cart-item-image')[0].src;
-		var title = cartItemList[i].getElementsByClassName('cart-item-title')[0].innerHTML;
-		var price = cartItemList[i].getElementsByClassName('cart-item-price')[0].innerHTML;
-		var base = cartItemList[i].getElementsByClassName('cart-item-price-base')[0].innerHTML;
-		
-		albumList[i] = {quantityKey: quantity, titleKey: title, imageKey: image, priceKey: price, basePriceKey: base};
-	}
-
-	console.log(albumList);
-	sessionStorage.setItem("albumList", JSON.stringify(albumList));
-	sessionStorage.setItem("subtotalCost", total);
-
-	window.location.href = "checkout.php";
-
-}
-
 
 function goBackFunction() {
 
@@ -407,7 +276,6 @@ function goBackFunction() {
 		albumList[i] = {quantityKey: quantity, titleKey: title, imageKey: image, priceKey: price, basePriceKey: base};
 	}
 
-	console.log(albumList);
 	sessionStorage.setItem("albumList", JSON.stringify(albumList));
 	sessionStorage.setItem("subtotalCost", document.getElementsByClassName('cart-items-total-price')[0].innerHTML);
 
@@ -438,7 +306,6 @@ function goBackFunction2() {
 		albumList[i] = {quantityKey: quantity, titleKey: title, imageKey: image, priceKey: price, basePriceKey: base};
 	}
 
-	console.log(albumList);
 	sessionStorage.setItem("albumList", JSON.stringify(albumList));
 	sessionStorage.setItem("subtotalCost", document.getElementsByClassName('cart-items-total-price')[0].innerHTML);
 
@@ -486,10 +353,9 @@ function onloadCartPage() {
 
 			cartItem.innerHTML = cartItemContent;
 
-			cartItem.getElementsByClassName('remove-button')[0].addEventListener('click', removeCartItem2);
+			cartItem.getElementsByClassName('remove-button')[0].addEventListener('click', removeCartItem);
 			cartItem.getElementsByClassName('cart-item-quantity-input')[0].addEventListener('change', quantityChanged);
 			cartItems.append(cartItem); // adds the content inside the div
-		
 	}
 
 	updateTotalItems();
@@ -503,21 +369,13 @@ function onchangeShipping() {
 
 	if(option == "lbc") {
 		document.getElementById('shipping-amount').innerHTML = 100;
-	}
-
-	else if(option == "standard") {
+	} else if(option == "standard") {
 		document.getElementById('shipping-amount').innerHTML = 75;
-	}
-
-	else if(option == "jrs") {
+	} else if(option == "jrs") {
 		document.getElementById('shipping-amount').innerHTML = 200;
-	}
-
-	else if(option == "xpost") {
+	} else if(option == "xpost") {
 		document.getElementById('shipping-amount').innerHTML = 150;
-	}
-
-	else if(option == "j&t") {
+	} else if(option == "j&t") {
 		document.getElementById('shipping-amount').innerHTML = 180;
 	}
 
@@ -551,19 +409,12 @@ function onchangePayment() {
 
 		paymentDiv.innerHTML = cardDetailsContent;
 		
-	}
-
-	else if(option == "cod") {
+	} else if(option == "cod") {
 		document.getElementById('shipping-amount').innerHTML = 75;
-
 		var paymentDiv = document.getElementsByClassName('payment-div')[0];
-
 		var cardDetailsContent = ` `;
-
-		paymentDiv.innerHTML = cardDetailsContent;
-		
+		paymentDiv.innerHTML = cardDetailsContent;		
 	}
-
 }
 
 
@@ -573,11 +424,7 @@ function updateTotal() {
 	var shipping = parseFloat(document.getElementById('shipping-amount').innerHTML);
 	var subtotal = parseFloat(document.getElementById('subtotal-amount').innerHTML);
 
-	console.log(shipping);
-	console.log(subtotal);
-
 	var total = subtotal + shipping;
-	console.log();
 	document.getElementById('total-amount').innerHTML = total;
 }
 
@@ -636,33 +483,23 @@ function onloadConfirmCheckout() {
 
 	if (paymentModeChosen = "cod") {
 		document.getElementById('payment-holder').innerHTML = "Cash On Delivery";
-	}
-
-	else if (paymentModeChosen = "card") {
+	} else if (paymentModeChosen = "card") {
 		document.getElementById('payment-holder').innerHTML = "Credit or Debit Card";
 	}
 
 	if(courierChosen == "lbc"){
 		document.getElementById('shipping-holder').innerHTML = "LBC Express - Next Day Delivery";
 		document.getElementById('shipping-amount').innerHTML = 100;
-	}
-
-	else if(courierChosen == "jrs"){
+	} else if(courierChosen == "jrs"){
 		document.getElementById('shipping-holder').innerHTML = "JRS Express - Delivery within 3-5 Days";
 		document.getElementById('shipping-amount').innerHTML = 200;
-	}
-
-	else if(courierChosen == "xpost"){
+	} else if(courierChosen == "xpost"){
 		document.getElementById('shipping-holder').innerHTML = "XPost Integrated - Next Day Delivery";
 		document.getElementById('shipping-amount').innerHTML = 150;
-	}
-
-	else if(courierChosen == "j&t"){
+	} else if(courierChosen == "j&t"){
 		document.getElementById('shipping-holder').innerHTML = "J&T Express - Delivery within 3-5 Days";
 		document.getElementById('shipping-amount').innerHTML = 180;
-	}
-
-	else if(courierChosen == "standard"){
+	} else if(courierChosen == "standard"){
 		document.getElementById('shipping-holder').innerHTML = "Standard Free Delivery - Delivery within 8-10 Days";
 		document.getElementById('shipping-amount').innerHTML = 75;
 	}
@@ -705,9 +542,7 @@ function onloadConfirmCheckout() {
 											<br><i><span style="font-size: 14px;">(PHP ${albumList[i].basePriceKey}/ea)</span></i>
 											<span class="cart-item-price-base">${albumList[i].basePriceKey}</span>
 										</div>`;
-		}
-
-		else {
+		} else {
 			
 			var cartItemContent = `<div class="col"> 
 											<img class="cart-item-image" src="${albumList[i].imageKey}">
@@ -727,8 +562,6 @@ function onloadConfirmCheckout() {
 										</div>`;
 		
 		}
-
-		
 
 		cartItem.innerHTML = cartItemContent;
 		cartItems.append(cartItem); // adds the content inside the div

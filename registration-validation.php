@@ -16,9 +16,9 @@ if($dbError) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$middle_name = $_POST['middle_name'];
+$firstName = $_POST['firstName'];
+$lastName = $_POST['lastName'];
+$middleName = $_POST['middleName'];
 $suffix = $_POST['suffix'];
 
 $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -36,10 +36,10 @@ if($stmt->num_rows > 0){
 	echo "Username Already Taken";
 	header('location:register.php'); 
 }else{
-	$reg = "Insert into users(first_name, last_name, middle_name, suffix, email, username, password) values (?,?,?,?,?,?,?)";
+	$reg = "Insert into users(firstName, lastName, middleName, suffix, email, username, password) values (?,?,?,?,?,?,?)";
 
 	$stmt = $db->prepare($reg);
-	$stmt->bind_param("sssssss", $first_name,$last_name,$middle_name,$suffix,$email,$username,$hash);
+	$stmt->bind_param("sssssss", $firstName,$lastName,$middleName,$suffix,$email,$username,$hash);
 	$stmt->execute();
 	$stmt->close();
 

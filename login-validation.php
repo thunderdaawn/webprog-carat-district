@@ -15,7 +15,7 @@ if($dbError) {
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = "SELECT username,password from users where username = ?";
+$query = "SELECT username, password from users where username = ?";
 $stmt = $db->prepare($query);
 $stmt->bind_param("s",$username);
 $stmt->execute();

@@ -52,7 +52,7 @@
 
 				require_once('service/db-connection-service.php');
 
-				$query = 'SELECT name, img_src, price, description FROM products WHERE id = "'.$productId.'"';
+				$query = 'SELECT name, imageSrc, price, description FROM products WHERE id = "'.$productId.'"';
 
 				$result = $db->query($query);
 
@@ -64,7 +64,7 @@
 
 			<div class="col col-6">
 
-				<img src = <?php echo $row['img_src']; ?> class="store-item-image" style="height: 300px; width: 300px;">
+				<img src = <?php echo $row['imageSrc']; ?> class="store-item-image" style="height: 300px; width: 300px;">
 
 			</div>
 

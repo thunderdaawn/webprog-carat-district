@@ -103,7 +103,7 @@
 
 						<div align="center">
 							&nbsp; &nbsp;
-							<button type="submit" class="btn btn-success" onclick="SubmitFunction()"> 
+							<button type="submit" class="btn btn-success"> 
 								Submit Order &nbsp; </span> <i class="fas fa-arrow-circle-right"></i></div></button>
 							<br>
 						</div>

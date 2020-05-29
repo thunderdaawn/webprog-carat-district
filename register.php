@@ -50,18 +50,18 @@
 			<form action = "registration-validation.php" method="post" id="login-form">
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px; margin-top: 10px;">
-					<label for="first_name"><b>First Name:&nbsp;&nbsp;&nbsp;</b></label>
-					<input type="text" name="first_name" class="form-control col-8 first_name" placeholder="First Name" required>
+					<label for="firstName"><b>First Name:&nbsp;&nbsp;&nbsp;</b></label>
+					<input type="text" name="firstName" class="form-control col-8 firstName" placeholder="First Name" required>
 				</span>
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
-					<label for="middle_name"><b>Middle Name:&nbsp;&nbsp;&nbsp;</b></label>
-					<input type="text" name="middle_name" class="form-control col-8 middle_name" placeholder="Middle Name">
+					<label for="middleName"><b>Middle Name:&nbsp;&nbsp;&nbsp;</b></label>
+					<input type="text" name="middleName" class="form-control col-8 middleName" placeholder="Middle Name">
 				</span>
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
-					<label for="last_name"><b>Last Name:&nbsp;&nbsp;&nbsp;</b></label>
-					<input type="text" name="last_name" class="form-control col-8 last_name" placeholder="Last Name" required>
+					<label for="lastName"><b>Last Name:&nbsp;&nbsp;&nbsp;</b></label>
+					<input type="text" name="lastName" class="form-control col-8 lastName" placeholder="Last Name" required>
 				</span>
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
@@ -80,7 +80,7 @@
 				</span>
 
 				<span class="form-group my-2" style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-end; padding-top:2px;">
-					<label for="last_name"><b>Password:&nbsp;&nbsp;&nbsp;</b></label>
+					<label for="password"><b>Password:&nbsp;&nbsp;&nbsp;</b></label>
 					<input type="password" name="password" class="form-control col-8 password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
 				</span>
 
