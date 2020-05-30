@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 
-INSERT INTO products (name, link, imageSrc, price, btn_id, description) VALUES 
+INSERT INTO products (name, link, imageSrc, price, description) VALUES 
 	('17 Carat', 'products.php?productId=1', 'http://localhost/carat-district/images/album1.jpg', 699, 'Pledis Entertainment, the agency of After School and NU’EST, is debuting the new boy band Seventeen. The group has been on the fan radar for a long time thanks to the pre-debut show Seventeen TV which followed the members as trainees, and their debut process is being documented in the MBC Music reality program Seventeen Project.'),
 	('Boys Be', 'products.php?productId=2', 'http://localhost/carat-district/images/album2.png', 829, 'Boys Be is the second extended play from South Korean boy band Seventeen. It was released on September 10, 2015, by Pledis Entertainment. The album consists of five tracks, including the title track, "Mansae".'),
 	('Love & Letter', 'products.php?productId=3', 'http://localhost/carat-district/images/album3.png', 959, 'Seventeen conveys the passion of teenage boys falling in love for the first time in their romantic spring album First “Love & Letter”. The album contains various numbers including the unreleased songs performed in their previous concert, songs composed by Lee Hyun Do and hip-hop group Phantom’s Kiggen, remix versions of the album’s standard tracks by different Seventeen subunits and a fan song.'),
