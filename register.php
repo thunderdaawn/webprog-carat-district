@@ -44,8 +44,7 @@
 
 		<div class="col-sm-4" style="background-color: #C4C1E5; margin-left: 60px; margin-top: 25px;">
 
-			<br>
-			<h3 style="background-color: white; padding:8px; color: #5D5A80; margin-bottom: 25px;"><b>REGISTER</b></h3>
+			<h3 style="background-color: white; padding:8px; color: #5D5A80; margin-bottom: 20px; margin-top: 15px;"><b>REGISTER</b></h3>
 
 			<form action = "registration-validation.php" method="post" id="login-form">
 
@@ -84,7 +83,14 @@
 					<input type="password" name="password" class="form-control col-8 password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required>
 				</span>
 
-				<button type="submit" class="btn my-4" style="background-color: #5D5A80; color: white;"><b>Register For Carat District</b></button>
+				<?php
+					if(isset($_GET['error'])) {
+						echo '<p style="margin-top: 14px;"><i> Username is already taken. Please Try Again. </i></p>';
+						echo '<button type="submit" class="btn" style="background-color: #5D5A80; color: white; margin-top: 3px; margin-bottom: 15px;"><b>Register For Carat District</b></button>';
+					} else {
+						echo '<button type="submit" class="btn my-4" style="background-color: #5D5A80; color: white;"><b>Register For Carat District</b></button>';
+					}
+				?>
 				
 			</form>
 		</div>

@@ -33,7 +33,7 @@ $stmt->store_result();
 $stmt->bind_result($uName);
 
 if($stmt->num_rows > 0){
-	header('location:register-retry.php'); 
+	header('location:register.php?error=1'); 
 }else{
 	$reg = "Insert into users(firstName, lastName, middleName, suffix, email, username, password) values (?,?,?,?,?,?,?)";
 
