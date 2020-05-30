@@ -1,8 +1,4 @@
-<?php 
-	if($_SERVER["HTTPS"] != "on"){
-	header("Location: https://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
-	exit;
-}
+<?php require_once('service/https-service.php')  ?>
  ?>
 <!DOCTYPE html>
 <html>
