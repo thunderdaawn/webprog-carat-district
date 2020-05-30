@@ -35,7 +35,7 @@ $stmt->bind_result($uName);
 if($stmt->num_rows > 0){
 	header('location:register.php?error=1'); 
 }else{
-	$reg = "INSERT INTO users(firstName, lastName, middleName, suffix, email, username, password) values (?,?,?,?,?,?,?)";
+	$reg = "INSERT INTO users(firstName, lastName, middleName, suffix, email, username, password) VALUES (?,?,?,?,?,?,?)";
 
 	$stmt = $db->prepare($reg);
 	$stmt->bind_param("sssssss", $firstName,$lastName,$middleName,$suffix,$email,$username,$hash);
