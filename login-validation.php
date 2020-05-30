@@ -34,7 +34,7 @@ if($stmt->num_rows > 0){
 		header('location:index.php'); // redirect
 	}
 	else{
-		header('location:login-retry.php'); // redirect
+		header('location:login.php?error=1'); // redirect
 	}
 }
 

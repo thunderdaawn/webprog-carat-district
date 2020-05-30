@@ -58,9 +58,14 @@
 					<input type="password" name="password" class="form-control col-7 password" placeholder="Password" required>
 				</span>
 
-				<br>
-				<br>
-				<button type="submit" class="btn my-2" style="background-color: #5D5A80; color: white;"><b>Login To Carat District</b></button>
+				<?php if(isset($_GET['error'])) {
+					echo '<p style="margin-top: 15px;"><i> Incorrect Username or Password. Please Try Again. </i></p>';
+					echo '<button type="submit" class="btn my-3" style="background-color: #5D5A80; color: white;"><b>Login To Carat District</b></button>';
+				} else {
+					echo '<br>';
+					echo '<br>';
+					echo '<button type="submit" class="btn my-2" style="background-color: #5D5A80; color: white;"><b>Login To Carat District</b></button>';
+				} ?>
 				
 			</form>
 		</div>
