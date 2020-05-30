@@ -36,6 +36,8 @@ if($stmt->num_rows > 0){
 	else{
 		header('location:login.php?error=1'); // redirect
 	}
+} else if($stmt->num_rows <= 0) {
+	header('location:login.php?error=1'); // redirect
 }
 
 
