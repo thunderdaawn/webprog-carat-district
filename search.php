@@ -125,9 +125,9 @@
 
 				</div>
 				<div class="mx-3 my-3">
-					<a class="btn btn-secondary my-3" href="index.php"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back To Home </a>
+					<a class="btn btn-info my-3" href="index.php"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back To Home </a>
 					&nbsp;
-					<a class="btn btn-secondary my-3" href="#navbar-div"> Back To Top &nbsp;<i class="fas fa-arrow-circle-up"></i> </a>
+					<a class="btn btn-info my-3" href="#navbar-div"> Back To Top &nbsp;<i class="fas fa-arrow-circle-up"></i> </a>
 				</div>
 
 			</center>

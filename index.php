@@ -104,6 +104,12 @@
 
 	<div class="store-items">
 
+		<br>
+
+		<center>
+			<img src="images/all-products.png" style="width: 750px; height: 200px;">
+		</center>
+
 		<?php
 
 			try {
@@ -165,7 +171,7 @@
 	<center>
 
 	<div class="my-3">
-		<a class="btn btn-secondary my-3" href="#navbar-div"> <i class="fas fa-arrow-circle-up"></i> &nbsp;Go Back To Top </a>
+		<a class="btn btn-info my-3" href="#navbar-div"> <i class="fas fa-arrow-circle-up"></i> &nbsp;Go Back To Top </a>
 	</div>
 
 	</center>
