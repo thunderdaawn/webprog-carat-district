@@ -83,7 +83,7 @@
 
 			<br>
 			<div align="center">
-				<a href="index.php" class="btn btn-danger"> <i class="fas fa-times-circle"></i> &nbsp; Cancel Order </a>
+				<a href="checkout.php" class="btn btn-danger"> <i class="fas fa-times-circle"></i> &nbsp; Cancel Order </a>
 					&nbsp; &nbsp;
 				<button type="submit" class="btn btn-success" onclick="confirmOrder()">
 					Confirm Order &nbsp; </span> <i class="fas fa-check-circle"></i></div></button>
