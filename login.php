@@ -1,5 +1,4 @@
-<?php require_once('service/https-service.php')  ?>
- ?>
+<?php require_once('service/https-service.php') ?>
 <!DOCTYPE html>
 <html>
 
