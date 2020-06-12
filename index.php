@@ -11,11 +11,28 @@
 		require_once('view-comp/header.php');
 	?>
 
+	<style type="text/css">
+
+		.store-item:hover {
+			border-color: #9796A1;
+			border-style: solid;
+			border-width: 2px;
+			text-decoration: none;
+			color: black;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+	</style>
+
 </head>
 
 <body onload="ready()" style="background-color: #D3F5FA">
 
-	<div class="navbar-div">
+	<div class="navbar-div" id="navbar-div">
 
 		<?php 
 			if(isset($_SESSION['username'])) {
@@ -80,6 +97,78 @@
 		</a>
 
 	</div>
+
+	</div>
+
+	<br>
+
+	<div class="store-items">
+
+		<?php
+
+			try {
+
+				require_once('service/db-connection-service.php');
+
+				$query = 'SELECT name, link, imageSrc, price FROM products;';
+
+				$result = $db->query($query);
+				$resultCount = $result->num_rows;
+
+				echo '<br/>';
+				echo '<div style="display: inline-block" class="mx-10 store-items">';
+
+				for($ctr = 0; $ctr < $resultCount; $ctr++) {
+
+					$row = $result->fetch_assoc();
+
+					if($ctr % 2 == 0) {
+
+						echo'<a href ='.$row['link'].' style="color: black; decoration: none;"><div class="store-item color1">';
+						echo '<b><div class="store-item-name">'.$row['name'].'</div></b>';
+						echo '<br>';
+						echo '<img class="store-item-image" src="'.$row['imageSrc'].'">';
+						echo '<br>';
+						echo '<br>';
+						echo '<div class="store-item-details">';
+						echo 'PHP <span class="store-item-price">'.$row['price'].'</span>';
+						echo '</div>';
+						echo '</div></a>';
+					}
+
+					else if($ctr % 2 == 1) {
+
+						echo'<a href ='.$row['link'].' style="color: black; decoration: none;"><div class="store-item color2">';
+						echo '<b><div class="store-item-name">'.$row['name'].'</div></b>';
+						echo '<br>';
+						echo '<img class="store-item-image" src="'.$row['imageSrc'].'">';
+						echo '<br>';
+						echo '<br>';
+						echo '<div class="store-item-details">';
+						echo 'PHP <span class="store-item-price">'.$row['price'].'</span>';
+						echo '</div>';
+						echo '</div></a>';
+					}
+
+				}
+
+				echo '</div>';
+
+			} catch (Exception $e) {
+				echo $e->getMessage();
+			}
+
+			?>
+
+	</div>
+
+	<center>
+
+	<div class="my-3">
+		<a class="btn btn-secondary my-3" href="#navbar-div"> <i class="fas fa-arrow-circle-up"></i> &nbsp;Go Back To Top </a>
+	</div>
+
+	</center>
 	</div>
 
 

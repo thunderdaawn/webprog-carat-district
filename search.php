@@ -32,7 +32,7 @@
 
 <body onload="ready()" style="background-color: #D3F5FA">
 
-	<div class="navbar-div">
+	<div class="navbar-div" id="navbar-div">
 		<?php 
 			if(isset($_SESSION['username'])) {
 				require_once('view-comp/navbar.php');
@@ -124,8 +124,10 @@
 				?>
 
 				</div>
-				<div class="mx-3">
-					<a class="btn btn-secondary my-3" href="index.php"> Go Back </a>
+				<div class="mx-3 my-3">
+					<a class="btn btn-secondary my-3" href="index.php"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back To Home </a>
+					&nbsp;
+					<a class="btn btn-secondary my-3" href="#navbar-div"> Back To Top &nbsp;<i class="fas fa-arrow-circle-up"></i> </a>
 				</div>
 
 			</center>
